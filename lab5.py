@@ -10,6 +10,11 @@ class Kind(Enum):
 
 class Pet:
     def __init__(self, name, breed, age, greetings, mass, kind: Kind):
+        if age < 0:
+            raise ValueError("Age cannot be negative")
+        if mass < 0:
+            raise ValueError("Mass cannot be negative")
+
         self.name = name
         self.breed = breed
         self.age = age
