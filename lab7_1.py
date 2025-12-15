@@ -1,6 +1,5 @@
 import math
 
-
 def sort_columns_insertion(matrix):
     rows = len(matrix)
     cols = len(matrix[0])
@@ -15,7 +14,6 @@ def sort_columns_insertion(matrix):
             matrix[j + 1][col] = key
 
     return matrix
-
 
 def fi_and_F(matrix):
     n = len(matrix)
@@ -42,26 +40,24 @@ def fi_and_F(matrix):
 
     return fi_values, F
 
+if __name__ == "__main__":
+    A = [
+        [34, 45, 65, 23, 98],
+        [1, -4, 67, -3, -18],
+        [23, -5, -1, 94, -25],
+        [2, 24, -4, 79, -63],
+        [10, 29, 25, 30, -6]
+    ]
 
-A = [
-    [34, 45, 65, 23, 98],
-    [1, -4, 67, -3, -18],
-    [23, -5, -1, 94, -25],
-    [2, 24, -4, 79, -63],
-    [10, 29, 25, 30, -6]
-]
+    sorted_matrix = sort_columns_insertion(A)
+    fi_values, F_value = fi_and_F(sorted_matrix)
 
+    print("Відсортована матриця:")
+    for row in sorted_matrix:
+        print(row)
 
-sorted_matrix = sort_columns_insertion(A)
-fi_values, F_value = fi_and_F(sorted_matrix)
+    print("\nЗначення fi(aij):")
+    for i, val in enumerate(fi_values):
+        print(f"fi[{i}] = {val:.3f}")
 
-
-print("Відсортована матриця:")
-for row in sorted_matrix:
-    print(row)
-
-print("\nЗначення fi(aij):")
-for i, val in enumerate(fi_values):
-    print(f"fi[{i}] = {val:.3f}")
-
-print(f"\nЗначення F(fi) = {F_value:.3f}")
+    print(f"\nЗначення F(fi) = {F_value:.3f}")
